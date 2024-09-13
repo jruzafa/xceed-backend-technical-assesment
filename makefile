@@ -62,3 +62,8 @@ install: ## Install dependencies
 .PHONY: unit
 unit: ## Execute unit test
 	$(DOCKER_COMPOSE_RUN) php bin/phpunit --testsuite Unit
+
+.PHONY: acceptance
+acceptance: ## Execute unit test
+	$(DOCKER_COMPOSE_RUN) php bin/phpunit --testsuite Acceptance
+
