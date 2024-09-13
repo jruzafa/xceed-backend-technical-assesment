@@ -1,0 +1,30 @@
+
+services:
+  php:
+    container_name: ${CONTAINER_NAME}-php-fpm
+    build:
+      context: .
+      dockerfile: .docker/php-fpm/Dockerfile
+      args:
+        TIMEZONE: ${TIMEZONE}
+        UID: ${UID:-1000}
+        GID: ${GID:-1000}
+        LOCAL_USER: jose
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - ./:/var/www
+    environment:
+      - PHP_IDE_CONFIG=serverName=xceed.test
+      - PHP_XDEBUG_MODE=${XDEBUG_MODE:-off}
+      - PHP_XDEBUG_REMOTE_HOST=host.docker.internal
+      - PHP_DISPLAY_ERRORS=1
+  nginx:
+    container_name: ${CONTAINER_NAME}-nginx
+    build:
+      context: .
+      dockerfile: .docker/nginx/Dockerfile
+    volumes:
+      - ./:/var/www
+    ports:
+      - "8080:80"
