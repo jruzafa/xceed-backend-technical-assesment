@@ -12,10 +12,12 @@ class TweetConverterControllerTest extends WebTestCase
         $client = static::createClient();
 
         /** @var Crawler $response */
-        $response = $client->request('GET', '/tweets/jackDorsey?limit=2');
+        $client->request('GET', '/tweets/jackDorsey?limit=2');
 
         $this->assertResponseIsSuccessful();
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertEmpty($response->filter(''));
+        $this->assertJson($client->getResponse()->getContent());
+        $this->assertCount(2, json_decode($client->getResponse()->getContent(), true));
     }
+
 }

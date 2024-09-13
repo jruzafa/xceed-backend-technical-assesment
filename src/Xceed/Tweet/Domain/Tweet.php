@@ -1,19 +1,25 @@
 <?php
 
-namespace Xceed\Tweet\Domain;
+declare(strict_types=1);
 
+namespace Xceed\Tweet\Domain;
 
 final class Tweet
 {
-    private $text;
+    private TweetText $text;
 
-    public function __construct(string $text)
+    public function __construct(TweetText $text)
     {
         $this->text = $text;
     }
 
-    public function getText(): string
+    public function text(): TweetText
     {
         return $this->text;
+    }
+
+    public function toArray(): string
+    {
+        return $this->text->value();
     }
 }

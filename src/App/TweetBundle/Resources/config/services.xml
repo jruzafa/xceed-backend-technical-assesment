@@ -5,9 +5,20 @@
     <services>
         <defaults autowire="true"/>
 
+        <!-- Controllers -->
         <service id="App\TweetBundle\Controller\TweetConverterController">
             <tag name="controller.service_arguments"/>
         </service>
 
+        <!-- Application -->
+        <service id="Xceed\Tweet\Application\GetTweetsByUserName"/>
+
+        <!-- Infrastructure -->
+        <service id="Xceed\Tweet\Infrastructure\TweetRepositoryInMemory"/>
+
+        <service id="Xceed\Tweet\Domain\TweetRepository"
+                 alias="Xceed\Tweet\Infrastructure\TweetRepositoryInMemory"/>
+
+        <service id="Xceed\Tweet\Infrastructure\TweetTextTransformer" />
     </services>
 </container>

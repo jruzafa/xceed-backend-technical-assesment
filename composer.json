@@ -31,7 +31,8 @@
     "autoload": {
         "psr-4": {
             "App\\": "src/App",
-            "Xceed\\": "src/Xceed"
+            "Xceed\\": "src/Xceed",
+            "Xceed\\Shared\\": "src/Shared"
         }
     },
     "autoload-dev": {
@@ -69,6 +70,7 @@
         "phpunit/phpunit": "^9.5",
         "symfony/browser-kit": "5.4.*",
         "symfony/css-selector": "5.4.*",
-        "symfony/phpunit-bridge": "^7.1"
+        "symfony/phpunit-bridge": "^7.1",
+        "ext-json": "*"
     }
 }
