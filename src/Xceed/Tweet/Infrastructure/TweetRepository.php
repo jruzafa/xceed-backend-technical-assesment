@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Infrastructure;
+namespace Xceed\Tweet\Infrastructure;
 
 interface TweetRepository
 {

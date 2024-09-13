@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Infrastructure;
+namespace Xceed\Tweet\Infrastructure;
 
-use App\Domain\Tweet;
+use Xceed\Tweet\Domain\Tweet;
 
 final class TweetRepositoryInMemory implements TweetRepository
 {

@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Domain;
+namespace Xceed\Tweet\Domain;
+
 
 final class Tweet
 {
