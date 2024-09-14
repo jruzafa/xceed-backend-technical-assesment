@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Xceed\Shared\Domain\Types;
 
-final class Limit
+readonly final class Limit
 {
     private int $value;
 

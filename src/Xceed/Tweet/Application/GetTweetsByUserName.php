@@ -8,14 +8,10 @@ use Xceed\Shared\Domain\Types\Limit;
 use Xceed\Shared\Domain\Types\UserName;
 use Xceed\Tweet\Domain\TweetRepository;
 
-final class GetTweetsByUserName
+readonly final class GetTweetsByUserName
 {
-    private TweetRepository $tweetRepository;
-
-    public function __construct(TweetRepository $tweetRepository)
-    {
-        $this->tweetRepository = $tweetRepository;
-    }
+    public function __construct(private TweetRepository $tweetRepository)
+    {}
 
     public function execute(GetTweetsByUserNameRequest $request): GetTweetsByUserNameResponse
     {

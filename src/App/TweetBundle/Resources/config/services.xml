@@ -11,7 +11,9 @@
         </service>
 
         <!-- Application -->
-        <service id="Xceed\Tweet\Application\GetTweetsByUserName"/>
+        <service id="Xceed\Tweet\Application\GetTweetsByUserName">
+            <argument type="service" id="Xceed\Tweet\Infrastructure\TweetRedisRepositoryDecorator"/>
+        </service>
 
         <!-- Infrastructure -->
         <service id="Xceed\Tweet\Infrastructure\TweetRepositoryInMemory"/>
@@ -20,5 +22,10 @@
                  alias="Xceed\Tweet\Infrastructure\TweetRepositoryInMemory"/>
 
         <service id="Xceed\Tweet\Infrastructure\TweetTextTransformer" />
+
+        <service id="Xceed\Tweet\Infrastructure\TweetRedisRepositoryDecorator">
+            <argument type="service" id="Xceed\Tweet\Infrastructure\TweetRepositoryInMemory"/>
+            <argument type="service" id="Xceed\Shared\Infrastructure\Redis\RedisClient"/>
+        </service>
     </services>
 </container>

@@ -4,9 +4,7 @@ declare(strict_types=1);
 
 namespace Xceed\Tweet\Domain;
 
-use Xceed\Shared\Domain\Types\UserName;
-
-final class TweetText
+final readonly class TweetText
 {
     private string $value;
 

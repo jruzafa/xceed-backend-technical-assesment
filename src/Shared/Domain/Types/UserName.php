@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Xceed\Shared\Domain\Types;
 
-final class UserName
+readonly final class UserName
 {
     private string $value;
 
@@ -20,5 +20,10 @@ final class UserName
     public static function create(string $userName): UserName
     {
         return new self($userName);
+    }
+
+    public function value(): string
+    {
+        return $this->value;
     }
 }

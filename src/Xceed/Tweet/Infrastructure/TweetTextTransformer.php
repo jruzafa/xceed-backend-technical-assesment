@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Xceed\Tweet\Infrastructure;
 
-final class TweetTextTransformer
+readonly final class TweetTextTransformer
 {
     public function transform(array $tweets): array
     {
