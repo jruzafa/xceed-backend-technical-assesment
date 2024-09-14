@@ -35,7 +35,9 @@ RUN apt-get update && apt-get install -y \
 
 RUN docker-php-ext-install pdo zip xsl intl opcache mbstring
 
-RUN pecl install xdebug-3.3.0
+RUN pecl install xdebug-3.3.0 redis
+
+RUN docker-php-ext-enable redis
 
 RUN ln -snf /usr/share/zoneinfo/${TIMEZONE} /etc/localtime && echo ${TIMEZONE} > /etc/timezone \
     && printf '[PHP]\ndate.timezone = "%s"\n', ${TIMEZONE} > /usr/local/etc/php/conf.d/tzone.ini \

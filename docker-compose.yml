@@ -19,6 +19,8 @@ services:
       - PHP_XDEBUG_MODE=${XDEBUG_MODE:-off}
       - PHP_XDEBUG_REMOTE_HOST=host.docker.internal
       - PHP_DISPLAY_ERRORS=1
+    links:
+      - redis
   nginx:
     container_name: ${CONTAINER_NAME}-nginx
     build:
@@ -28,3 +30,5 @@ services:
       - ./:/var/www
     ports:
       - "8080:80"
+  redis:
+    image: redis:latest
