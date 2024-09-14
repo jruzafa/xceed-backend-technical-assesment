@@ -40,7 +40,7 @@ up: ## Docker up and detach services
 
 .PHONY: debug
 debug: ## Docker up and detach services
-	export XDEBUG_MODE=debug,coverage;
+	export XDEBUG_MODE=develop,debug;
 	$(DOCKER_COMPOSE) up --detach
 
 .PHONY: down
