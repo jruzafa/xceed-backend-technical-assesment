@@ -14,8 +14,6 @@ services:
       - "host.docker.internal:host-gateway"
     volumes:
       - ./:/var/www
-    links:
-      - redis
   nginx:
     container_name: ${CONTAINER_NAME}-nginx
     build:

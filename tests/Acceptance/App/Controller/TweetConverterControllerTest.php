@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Acceptance;
+namespace App\Tests\Acceptance\App\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\DomCrawler\Crawler;
@@ -14,10 +14,9 @@ class TweetConverterControllerTest extends WebTestCase
         /** @var Crawler $response */
         $client->request('GET', '/tweets/jackDorsey?limit=2');
 
-        $this->assertResponseIsSuccessful();
-        $this->assertEquals(200, $client->getResponse()->getStatusCode());
-        $this->assertJson($client->getResponse()->getContent());
-        $this->assertCount(2, json_decode($client->getResponse()->getContent(), true));
+        self::assertResponseIsSuccessful();
+        self::assertEquals(200, $client->getResponse()->getStatusCode());
+        self::assertJson($client->getResponse()->getContent());
+        self::assertCount(2, json_decode($client->getResponse()->getContent(), true));
     }
-
 }

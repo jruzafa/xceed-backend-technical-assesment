@@ -27,7 +27,7 @@ final class TweetCollection implements \IteratorAggregate, \Countable
 
     public function contains($element): bool
     {
-        return isset($this->elements[$element->text()]);
+        return isset($this->elements[(string) $element->text()]);
     }
 
     public function isEmpty(): bool

@@ -10,7 +10,7 @@ class LimitTest extends TestCase
     public function testCreateLimit(): void
     {
         $expectedLimit = Limit::create(1);
-        $this->assertInstanceOf(Limit::class, $expectedLimit);
+        self::assertInstanceOf(Limit::class, $expectedLimit);
     }
 
     public function testCreateLimitWithGreatestMaxValue(): void

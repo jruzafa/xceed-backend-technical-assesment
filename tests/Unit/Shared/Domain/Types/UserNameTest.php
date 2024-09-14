@@ -10,7 +10,7 @@ class UserNameTest extends TestCase
     public function testCreateUserName(): void
     {
         $expectedUserName = UserName::create('JohnDoe');
-        $this->assertInstanceOf(UserName::class, $expectedUserName);
+        self::assertInstanceOf(UserName::class, $expectedUserName);
     }
 
     public function testCreateUserNameWithEmptyValue(): void

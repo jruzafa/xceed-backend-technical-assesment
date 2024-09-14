@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Tests\Unit\Tweet\Domain;
+namespace App\Tests\Unit\Xceed\Tweet\Domain;
 
 use PHPUnit\Framework\TestCase;
 use Xceed\Tweet\Domain\TweetText;
@@ -10,7 +10,7 @@ class TweetTextTest extends TestCase
     public function testCreateTweetText(): void
     {
         $expectedTweetText = TweetText::create('This is a tweet text');
-        $this->assertInstanceOf(TweetText::class, $expectedTweetText);
+        self::assertInstanceOf(TweetText::class, $expectedTweetText);
     }
 
     public function testCreateTweetTextWithEmptyText(): void

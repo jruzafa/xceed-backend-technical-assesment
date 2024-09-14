@@ -64,6 +64,9 @@ unit: ## Execute unit test
 	$(DOCKER_COMPOSE_RUN) php bin/phpunit --testsuite Unit
 
 .PHONY: acceptance
-acceptance: ## Execute unit test
+acceptance: ## Execute acceptance test
 	$(DOCKER_COMPOSE_RUN) php bin/phpunit --testsuite Acceptance
 
+.PHONY: integration
+integration: ## Execute integration test
+	$(DOCKER_COMPOSE_RUN) php bin/phpunit --testsuite Integration
