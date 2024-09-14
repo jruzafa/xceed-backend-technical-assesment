@@ -9,7 +9,7 @@ use Xceed\Tweet\Application\GetTweetsByUserName;
 use Xceed\Tweet\Application\GetTweetsByUserNameRequest;
 use Xceed\Tweet\Infrastructure\TweetTextTransformer;
 
-final class TweetConverterController
+readonly final class TweetConverterController
 {
     private GetTweetsByUserName $useCase;
     private TweetTextTransformer $transformer;

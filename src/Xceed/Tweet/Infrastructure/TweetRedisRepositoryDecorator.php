@@ -19,13 +19,13 @@ readonly final class TweetRedisRepositoryDecorator implements TweetRepository
      */
     public function searchByUserName(UserName $userName, Limit $limit): TweetCollection
     {
-        $tweets = $this->redisClient->get($userName->value());
+        $tweetCollection = $this->redisClient->get($userName->value());
 
-        if (null === $tweets) {
-            $tweets = $this->internalRepository->searchByUserName($userName, $limit);
-            $this->redisClient->set($userName->value(), $tweets);
+        if (null === $tweetCollection) {
+            $tweetCollection = $this->internalRepository->searchByUserName($userName, $limit);
+            $this->redisClient->set($userName->value(), $tweetCollection);
         }
 
-        return $tweets;
+        return $tweetCollection;
     }
 }

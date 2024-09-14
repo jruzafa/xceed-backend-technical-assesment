@@ -28,4 +28,5 @@ services:
 
     Xceed\Shared\Infrastructure\Redis\RedisClient:
         arguments:
-            - '%env(REDIS_URL)%'
+            - '%env(REDIS_HOST)%'
+            - '%env(REDIS_PORT)%'
