@@ -7,7 +7,7 @@ namespace Xceed\Shared\Infrastructure\Redis;
 use Psr\Log\LoggerInterface;
 use Redis;
 
-final class RedisClient
+class RedisClient
 {
     private const TIMEOUT_KEY = 300;
 
