@@ -70,3 +70,7 @@ acceptance: ## Execute acceptance test
 .PHONY: integration
 integration: ## Execute integration test
 	$(DOCKER_COMPOSE_RUN) php bin/phpunit --testsuite Integration
+
+.PHONY: test
+test: ## Execute all type of tests
+	$(DOCKER_COMPOSE_RUN) php bin/phpunit

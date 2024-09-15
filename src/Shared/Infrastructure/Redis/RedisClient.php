@@ -4,16 +4,20 @@ declare(strict_types=1);
 
 namespace Xceed\Shared\Infrastructure\Redis;
 
+use Psr\Log\LoggerInterface;
 use Redis;
 
 final class RedisClient
 {
     private const TIMEOUT_KEY = 300;
-    private Redis $client;
 
-    public function __construct(string $host, int $port) {
+    private Redis $client;
+    private LoggerInterface $logger;
+
+    public function __construct(string $host, int $port, LoggerInterface $logger) {
         $this->client = new Redis();
         $this->client->connect($host, $port);
+        $this->logger = $logger;
     }
 
     public function get(string $key)
@@ -27,6 +31,8 @@ final class RedisClient
 
             return unserialize($result);
         } catch (\RedisException $e) {
+            $this->logger->error($e->getMessage(), ['trace' => $e->getTraceAsString(), 'key' => $key]);
+
             return null;
         }
     }
